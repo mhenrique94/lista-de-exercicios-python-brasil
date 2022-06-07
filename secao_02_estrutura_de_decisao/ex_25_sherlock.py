@@ -41,7 +41,7 @@ def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
 
     for cada in respostas:
       if cada == 'Sim':
-        sim = sim + 1
+        sim += 1
       else:
         sim = sim
 
