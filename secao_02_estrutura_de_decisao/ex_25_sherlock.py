@@ -31,5 +31,25 @@ Caso contrário, ele será classificado como "Inocente".
 """
 
 
+from lib2to3.pgen2.literals import simple_escapes
+
+
 def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
     """Escreva aqui em baixo a sua solução"""
+    respostas = [telefonou, estava_no_local, mora_perto, devia, trabalhou]
+    sim = 0
+
+    for cada in respostas:
+      if cada == 'Sim':
+        sim = sim + 1
+      else:
+        sim = sim
+
+    if sim == 2:
+      return ("Suspeito")
+    elif sim == 3 or sim == 4:
+      return ('Cúmplice')
+    elif sim == 5:
+      return ('Assassino')
+    else:
+      return('Inocente')
