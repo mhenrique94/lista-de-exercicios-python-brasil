@@ -31,5 +31,22 @@ mostre os números um ao lado do outro.
 """
 
 
+from dataclasses import replace
+import re
+
+
 def escrever_numeros_de_1_a_20(formato:str) -> str:
     """Escreva aqui em baixo a sua solução"""
+    count = 1
+    linha_unica= []
+    if formato == 'um_abaixo_do_outro':
+        while count <21 :
+            print(count)
+            count = count + 1
+    else:
+        while count < 21:
+            linha_unica.append(count)
+            count = count + 1
+        linha_unica = str(linha_unica).replace(',', '').replace('[', '').replace(']', '')
+        print(linha_unica)
+
