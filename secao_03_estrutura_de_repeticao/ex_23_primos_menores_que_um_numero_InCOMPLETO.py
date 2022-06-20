@@ -46,7 +46,7 @@ def calcular_primos_e_divisoes(n: int) -> Tuple[str, int]:
     divisoes = 0
     primos = []
     # saida = ''
-
+    #tentar usar try exception
     while divisoes < n:
         if n == 0 or n == 1:
             return
