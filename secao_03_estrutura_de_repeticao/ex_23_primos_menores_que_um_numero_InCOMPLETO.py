@@ -45,27 +45,27 @@ def calcular_primos_e_divisoes(n: int) -> Tuple[str, int]:
     """Escreva aqui em baixo a sua solução"""
     divisoes = 0
     primos = []
-    # saida = ''
-    #tentar usar try exception
-    while divisoes < n:
-        if n == 0 or n == 1:
-            return
+    saida = ''
+    count = 0
+
+    if n == 0 or n == 1:
+            return(saida, divisoes)
+    while count <= n:
+     
+        if count == 2:
+            primos.append(count)
+            count = count + 1
         
-        
+        elif count == 3:
+            primos.append(count)
+            # divisoes = n - 1
+            count = count + 1
+        elif count % 2 == 0 or count % 3 == 0 or count == 1:
+            count = count + 1
         else:
-            if n == 2:
-                divisoes = divisoes + n
-                primos.append(n)
-            
-            if n == 3:
-                primos.append(n)
-                divisoes = divisoes + n
-            elif n % 2 == 0 or n % 3 == 0:#caso não seja primo começa aqui  
-                continue
-            else:
-                primos.append(n)
-                divisoes = divisoes + n
+            primos.append(n)
+            # divisoes = n - 1
+            count = count + 1
     
-    for _ in primos:
-        saida = ','.join(primos)
+    saida = str(primos).replace('[', '').replace(']', '')
     return(saida, divisoes)
