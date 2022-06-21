@@ -56,3 +56,38 @@ para registrar a próxima compra.
 
 def rodar_programa_de_caixa():
     """Escreva aqui em baixo a sua solução"""
+
+    entrada = input('Digita ai')
+    total_compra = 0.0
+    dinheiro = 0
+
+    while entrada != '-1' and entrada != '0':
+        total_compra += float(entrada)
+        entrada = input('Digita ai')
+
+    if entrada == '-1':
+        if total_compra !=0:
+            dinheiro = float(input("Digite dinheiro"))
+            iniciar_troco(total_compra, dinheiro)
+        else:
+            print('Lojas Tabajara')
+            print('-------------------')
+
+    if entrada == '0':
+        dinheiro = float(input("Digite dinheiro"))
+        iniciar_troco(total_compra, dinheiro)
+        entrada = input('Digita ai')
+
+    print('Programa encerrado!')
+
+
+def iniciar_troco(total_compra, dinheiro):
+
+    troco = dinheiro - total_compra
+    print('Lojas Tabajara')
+    print(f'Total     : R$ {total_compra:>6.2f}')
+    print(f'Dinheiro  : R$ {dinheiro:>6.2f}')
+    print(f'Troco     : R$ {troco:>6.2f}')
+    print('-------------------')
+
+    
