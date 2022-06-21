@@ -54,5 +54,51 @@ da média das alturas e dos pesos dos clientes
 """
 
 
+from operator import indexOf
+from statistics import mean
+
+
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
+    
+    nomes =[]
+    alturas = []
+    pesos = []
+    count = 0
+    lista = []
+
+    while True:
+        nome = input('Nome')
+
+        if nome == '0':
+            break
+        
+        else:
+            nomes.append(nome)
+            alturas.append(int(input('Altura')))
+            pesos.append(int(input('Peso')))
+        
+    gordo_kg = max(pesos)
+    alto_cm = max(alturas)
+    magro_kg = min(pesos)
+    baixo_cm = min(alturas)
+
+    gordo_nome = nomes[indexOf(pesos, gordo_kg)]
+    magro_nome = nomes[indexOf(pesos, magro_kg)]
+    alto_nome = nomes[indexOf(alturas, alto_cm)]
+    baixo_nome = nomes[indexOf(alturas, baixo_cm)]
+
+    media_peso = mean(pesos)
+    media_altura = mean(alturas)
+
+    print(f'Cliente mais alto: {alto_nome}, com {alto_cm} centímetros')
+    print(f'Cliente mais baixo: {baixo_nome}, com {baixo_cm} centímetros')
+    print(f'Cliente mais magro: {magro_nome}, com {magro_kg} kilos')
+    print(f'Cliente mais gordo: {gordo_nome}, com {gordo_kg} kilos')
+    print('--------------------------------------------------')
+    print(f'Media de altura dos clientes: {media_altura:.1f} centímetros')
+    print(f'Media de peso dos clientes: {media_peso:.1f} kilos')
+
+
+
+        
