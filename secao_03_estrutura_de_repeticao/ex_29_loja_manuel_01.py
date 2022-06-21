@@ -67,3 +67,12 @@ preços de 1 até 50 produtos.
 
 def gerar_tabela_de_precos():
     """Escreva aqui em baixo a sua solução"""
+
+    item = 1.99
+    count = 1
+
+    print('Lojas Quase Dois - Tabela de preços')
+
+    while count < 51:
+        print(f'{count:<2} - R$ {count*item:>5.2f}')
+        count += 1
