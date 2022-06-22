@@ -26,5 +26,24 @@ Mostre os valores com uma casa decimail
 """
 
 
+from statistics import mean
+
+
 def calcular_estatisticas(*cidades):
     """Escreva aqui em baixo a sua solução"""
+    siglas = []
+    n_carros = []
+    n_acidentes = []
+
+    for each in cidades:
+        siglas.append(each[0])
+        n_carros.append(each[1])
+        n_acidentes.append(each[2])
+
+    maior_indice_acidente = max(n_acidentes)
+    menor_indice_acidente = min(n_acidentes)
+    media_veiculos = mean(n_carros)
+
+    
+
+    
