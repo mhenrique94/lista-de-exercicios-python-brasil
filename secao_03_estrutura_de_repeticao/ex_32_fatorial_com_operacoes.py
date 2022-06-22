@@ -26,3 +26,14 @@ Ex.: 5!=5.4.3.2.1=120
 
 def calcular_fatorial(n: int):
     """Escreva aqui em baixo a sua solução"""
+    multi=1
+    count=0
+    vetor = []
+    print(f'Fatorial de {n}:')
+    while count < n:
+        count += 1
+        multi *= count
+        vetor.append(count)
+    vetor.reverse()
+    vetor_str = str(vetor).replace(',', ' .').replace('[', '').replace(']', '')
+    print(f'{n}! = {vetor_str} = {multi}')
