@@ -35,5 +35,5 @@ def calcular_fatorial(n: int):
         multi *= count
         vetor.append(count)
     vetor.reverse()
-    vetor_str = str(vetor).replace(',', ' .').replace('[', '').replace(']', '')
+    vetor_str = str(vetor).strip(',[]').replace(', ', ' . ')
     print(f'{n}! = {vetor_str} = {multi}')
