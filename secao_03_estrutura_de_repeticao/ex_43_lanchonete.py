@@ -138,14 +138,11 @@ def fechar_conta(*itens):
     print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
 
     for each in conta:
-        for id, sub in each.items():
-            subtotal = Counter(subtotal) + Counter(each)
-            
-            
+        subtotal = Counter(subtotal) + Counter(each)
 
     for chave, valor in subtotal.items():
         total += subtotal[chave]
-        print(f'| {cardapio[chave][0]:16s} | {chave}    | {cardapio[chave][1]:<19.2f} | {quant_final[chave]:10d} | {subtotal[chave]:10.2f} |')
+        print(f'| {cardapio[chave][0]:16s} | {chave}    | {cardapio[chave][1]:<19.2f} | {quant_final[chave]:10d} | {valor:10.2f} |')
 
     print('|---------------------------------------------------------------------------|')
     print(f'| Total Geral:                                    | {total_quantia:10d} | {total:10.2f} |')
