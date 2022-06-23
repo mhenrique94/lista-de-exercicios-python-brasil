@@ -86,7 +86,27 @@ A percentagem de votos em branco sobre o total de votos. Para finalizar o conjun
 
 """
 from collections import Counter
+from curses import beep
 
 
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+    votacao = {}
+    opcao = {'1':'Bostonaro', '2':'Luladrão', '3':'Dilmanta', '4':'FHC Isentão'}
+    votos_totais = len(votos)
+    b_e_n = {'5': 0, '6': 0}
+
+    for voto in votos:
+        if voto in opcao:
+            votacao = Counter(votacao) + Counter(voto)
+        else:
+            b_e_n = Counter(b_e_n) + Counter(voto)
+    
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+    print(f"{'1':19s} {'Bostonaro':17s} {votacao['1']:<4d}  {votacao['1']/votos_totais*100:>5.1f}%")
+    print(f"{'2':19s} {'Luladrão':17s} {votacao['2']:<4d}  {votacao['2']/votos_totais*100:>5.1f}%")
+    print(f"{'3':19s} {'Dilmanta':17s} {votacao['3']:<4d}  {votacao['3']/votos_totais*100:>5.1f}%")
+    print(f"{'4':19s} {'FHC Isentão':17s} {votacao['4']:<4d}  {votacao['4']/votos_totais*100:>5.1f}%")
+    print('-------------------------------------------------------------------')
+    print(f"{'5':19s} {'Votos Nulos':17s} {b_e_n['5']:<4d}  {b_e_n['5']/votos_totais*100:>5.1f}%")
+    print(f"{'6':19s} {'Votos Brancos':17s} {b_e_n['6']:<4d}  {b_e_n['6']/votos_totais*100:>5.1f}%")
