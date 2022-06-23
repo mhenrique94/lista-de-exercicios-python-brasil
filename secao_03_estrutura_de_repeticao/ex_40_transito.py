@@ -50,7 +50,6 @@ def calcular_estatisticas(*cidades):
     menor_indice = min(indice_acidentes)
     nome_maior_indice = siglas[indice_acidentes.index(maior_indice)]
     nome_menor_indice = siglas[indice_acidentes.index(menor_indice)]
-    media_acidentes = sum(n_acidentes) / len(n_acidentes)
     media_acidentes_cidades_pequenas = sum(acidentes_cidades_pequenas) / len(acidentes_cidades_pequenas)
 
     print(f'O maior índice de acidentes é de {nome_maior_indice}, com {maior_indice:.1f} acidentes por mil carros.')

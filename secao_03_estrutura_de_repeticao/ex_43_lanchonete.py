@@ -107,5 +107,46 @@ comprados.
 """
 
 
+from typing import Counter
+
+
 def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
+
+    cardapio = {'100': ('Cachorro Quente', 1.2), '101': ('Bauru Simples', 1.3), '102': ('Bauru com Ovo', 1.5), '103': ('Hamburger', 1.2), '104': ('Cheeseburger', 1.3), '105': ('Refrigerante', 1.0),}
+
+    pedido = {}
+    conta = []
+    subtotal = {}
+    total = 0.0
+    total_quantia = 0
+    quant = {}
+    quant_final = {}
+
+    for cadaum in itens:
+        pedido[cadaum[0]] = cadaum[1]*cardapio[cadaum[0]][1]
+        quant[cadaum[0]] = cadaum[1]
+        conta.append(pedido)
+        quant_final = Counter(quant_final) + Counter(quant)
+        pedido = {}
+        quant = {}
+        total_quantia += cadaum[1]
+
+    print('_____________________________________________________________________________')
+    print('|                              RESUMO DA CONTA                              |')
+    print('|---------------------------------------------------------------------------|')
+    print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
+
+    for each in conta:
+        for id, sub in each.items():
+            subtotal = Counter(subtotal) + Counter(each)
+            
+            
+
+    for chave, valor in subtotal.items():
+        total += subtotal[chave]
+        print(f'| {cardapio[chave][0]:16s} | {chave}    | {cardapio[chave][1]:<19.2f} | {quant_final[chave]:10d} | {subtotal[chave]:10.2f} |')
+
+    print('|---------------------------------------------------------------------------|')
+    print(f'| Total Geral:                                    | {total_quantia:10d} | {total:10.2f} |')
+    print('-----------------------------------------------------------------------------')
