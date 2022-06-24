@@ -47,5 +47,45 @@ Gabarito da Prova:
 """
 
 
+from platform import mac_ver
+from typing import Counter
+
+
 def corrigir(*provas):
     """Escreva aqui em baixo a sua solução"""
+    resultado = {}
+    total = 0
+    maxima = 0
+    minima = 10
+    gabarito = ['cidadao', 'A', 'B', 'C', 'D', 'E', 'E', 'D', 'C', 'B', 'A']
+
+    for conjunto in provas:
+        count = 0
+        for cadaum in conjunto:
+                if len(cadaum) > 1:
+                    resultado[cadaum] = 0
+                    count += 1
+                else:
+                    if cadaum == gabarito[count]:
+                        resultado[conjunto[0]] += 1
+                        count += 1
+                        
+    print('Aluno                 Nota')
+
+    for nome, nota in resultado.items():
+        total += nota
+        if maxima < nota:
+            maxima = nota
+        if minima > nota:
+            minima = nota
+
+        print(f'{nome}                 {nota}')
+
+    media = total / len(resultado)
+
+    print('---------------------------')
+    print(f'Média geral: {media}')
+    print(f'Maior nota: {maxima}')
+    print(f'Menor nota: {minima}')
+    print(f'Total de Alunos: {len(resultado)}')
+
