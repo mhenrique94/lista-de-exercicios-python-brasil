@@ -46,5 +46,50 @@ Mostre os valores com uma casa decimal sem arredondar.
 """
 
 
+from operator import indexOf
+from statistics import mean
+import math
+
 def calcular_estatiscas_do_salto(nome, *saltos):
     """Escreva aqui em baixo a sua solução"""
+    
+    prova = []
+    for salto in saltos:
+        prova.append(salto)
+    number = sum(sorted(prova)) / 5
+    resultado_final = round_decimals_down(number)
+
+    print(f'Atleta: {nome}')
+    print('---------------------------------')
+    print(f'Primeiro Salto: {prova[0]} m')
+    print(f'Segundo Salto: {prova[1]} m')
+    print(f'Terceiro Salto: {prova[2]} m')
+    print(f'Quarto Salto: {prova[3]} m')
+    print(f'Quinto Salto: {prova[4]} m')
+
+    melhor = prova.pop(indexOf(prova, max(prova)))
+    pior = prova.pop(indexOf(prova, min(prova)))
+    number = sum(sorted(prova)) / 3
+    media = round_decimals_down(number)
+
+    print('---------------------------------')
+    print(f'Melhor salto:  {melhor:.1f} m')
+    print(f'Pior salto: {pior:.1f} m')
+    print(f'Média dos demais saltos: {media} m')
+    print('---------------------------------')
+    print('Resultado final:')
+    print(f'{nome}: {resultado_final:.1f} m')
+
+def round_decimals_down(number:float, decimals:int=1):
+    """
+    Returns a value rounded down to a specific number of decimal places. Afinal, StackOverflow também é ferramenta de trabalho rs
+    """
+    if not isinstance(decimals, int):
+        raise TypeError("decimal places must be an integer")
+    elif decimals < 0:
+        raise ValueError("decimal places has to be 0 or more")
+    elif decimals == 0:
+        return math.floor(number)
+
+    factor = 10 ** decimals
+    return math.floor(number * factor) / factor
